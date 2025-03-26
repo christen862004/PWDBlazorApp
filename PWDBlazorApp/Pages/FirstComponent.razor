@@ -1,0 +1,42 @@
+﻿@page "/First"
+<PageTitle>First Component</PageTitle>
+
+<h3>FirstComponent</h3>
+<input type="button" class="btn btn-success" 
+value="Display Message" @onclick='()=>ShowMsg("hello")'/>
+
+
+<input type="button" class="btn btn-success"
+       value="Change Msg" @onclick="Change" />
+
+
+
+<h2>One Way Binding FRom C# == HTML</h2>
+<input type="text" value="@Message" class="form form-control" />
+<h1>@Message</h1>
+
+<hr />
+<h2>Two Way Binding From C#  to HTML and HTML to C#</h2>
+<input type="text" @bind-value="@Message" @bind-value:event="onchange" class="form form-control" />
+
+<hr />
+<h2>Two Way Binding with update</h2>
+<input type="text" @bind-value="@Message" @bind-value:event="oninput" class="form form-control" />
+
+
+@code {
+    public string Message { get; set; } 
+    public FirstComponent()
+    {
+        Message = "'Helllllllllllllllllllo :)";
+    }
+
+    public void ShowMsg(string msg)
+    {
+        Console.WriteLine($"Hello From My First PAge Component {msg}");
+    }
+    void Change()
+    {
+        Message = "PWD First Component";
+    }
+}

@@ -1,0 +1,30 @@
+﻿@page "/Dept"
+<PageTitle>Department PAge</PageTitle>
+<h3>DepartmentComponent</h3>
+<select class="form form-control" @bind="DeptId" 
+@bind:event="oninput"
+@onchange="GetDEpt">
+    @foreach (var item in DeptList)
+    {
+        <option value="@item.Id">@item.Name</option>
+    }
+</select>
+@* <input type="button" class="btn btn-primary" 
+value="Show Details" @onclick="GetDEpt"/>
+<h1>@DeptId</h1> *@
+
+
+@if (Dept != null)
+{
+    <h3> @Dept?.Name</h3>
+    <h3> @Dept?.Id</h3>
+    <h3> @Dept?.ManagerName</h3>
+    @* <input type="text" @bind="Dept.Name"
+           @bind:event="oninput" class="form form-control" /> *@
+}
+else
+{
+    <h1>Wait or select dept</h1>
+}
+
+       
