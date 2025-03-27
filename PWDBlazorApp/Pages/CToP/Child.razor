@@ -1,0 +1,19 @@
+﻿<div style="border:5px solid red;margin:10px">
+    <h3>Child</h3>
+    <h3>@Message</h3>
+    <input type="button" class="btn btn-primary" value="Change" @onclick="ChangeMsg" />
+</div>
+
+@code {
+    public string Message { get; set; } = "Initalize";
+    //declare event
+    [Parameter]
+    public EventCallback<string> MsgChangeEvent { get; set; }
+    
+    void ChangeMsg()
+    {
+        Message += "Hello  ";
+        //FireEvent
+        MsgChangeEvent.InvokeAsync(Message);
+    }
+}

@@ -1,0 +1,14 @@
+﻿@page "/p3"
+<h3>Parent</h3>
+<Child MsgChangeEvent="ChangeMessageHndeller"></Child>
+
+<h2>@LocalMsg</h2>
+@code {
+    public string LocalMsg { get; set; }
+
+    public void ChangeMessageHndeller(string newMsg)
+    {
+        LocalMsg = newMsg;
+        Console.WriteLine("Parent Handeller :"+newMsg);
+    }
+}

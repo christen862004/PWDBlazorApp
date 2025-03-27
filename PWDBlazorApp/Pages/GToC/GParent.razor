@@ -1,0 +1,13 @@
+﻿@page "/G1"
+<h3>GParent</h3>
+<CascadingValue Name="Message" Value="GPMessage">
+    <CascadingValue Name="no" Value="10">
+        <Parent></Parent>
+    </CascadingValue>
+</CascadingValue>
+
+
+@code {
+    public string GPMessage { get; set; } = "Hello";
+    
+}

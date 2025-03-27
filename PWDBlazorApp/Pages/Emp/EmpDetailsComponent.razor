@@ -1,0 +1,34 @@
+﻿
+@page  "/Emps/Details/{id:int}"
+@* @inject IServices<Employee> EmpService *@
+<PageTitle>Emp Details</PageTitle>
+
+<h3>EmpDetailsComponent</h3>
+@if (EmpObj != null)
+{
+    <h2>@EmpObj.Name</h2>
+    <h2>@EmpObj.Salary</h2>
+    <h2>@EmpObj.DepartmentID</h2>
+    <img src="/Assets/@EmpObj.ImageURL" style="width:100px" />
+}
+else
+{
+    <h3>Wait Or Invalid ID :)</h3>
+}
+<a href="/Emps">Back To List</a>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    [Inject]//C3
+    public IServices<Employee> EmpService{ get; set; }
+
+
+    public Employee EmpObj { get; set; }
+    protected override void OnInitialized()
+    {
+        EmpObj= EmpService.GetByID(id);
+        base.OnInitialized();
+    }
+}

@@ -10,6 +10,9 @@ namespace PWDBlazorApp
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
+
+            builder.Services.AddScoped<IServices<Employee>, EmployeeServices>();
+            builder.Services.AddScoped<IServices<Department>, DepartmentServices>();
             //Day3
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

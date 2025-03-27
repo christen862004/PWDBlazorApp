@@ -1,4 +1,5 @@
-﻿using PWDBlazorApp.Models;
+﻿using Microsoft.AspNetCore.Components;
+using PWDBlazorApp.Models;
 
 namespace PWDBlazorApp.Pages
 {
@@ -22,7 +23,9 @@ namespace PWDBlazorApp.Pages
 
         public void GetDEpt()
         {
+            //anim.die = remove;
             Dept= DeptList.FirstOrDefault(d => d.Id == DeptId);
         }
+        
     }
 }

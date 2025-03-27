@@ -1,0 +1,48 @@
+﻿@page "/DEpt/Details/{id:int}/{name}"
+
+<h3>DeptDetailsComponent</h3>
+<h1>@id</h1>
+<h2>@name</h2>
+@code{
+    //1)declar property with tne same name
+    [Parameter]
+    public int id { get; set; } 
+    
+    [Parameter]
+    public string name { get; set; }
+
+
+    public DeptDetailsComponent()
+    {
+        Console.WriteLine($"Constructor id={id} \t name={name}");
+    }
+
+    //onInitlaize Step 3  ==>no microsft implement  it leav to develop
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine($"OnInitialized id={id} \t name={name}");
+
+        base.OnInitialized();
+    }
+
+    //SetParmeter Step no2  ==>parmete initaize (Binding )  Inject services
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        Console.WriteLine($"SetParametersAsyncc id={id} \t name={name}");
+
+        return base.SetParametersAsync(parameters);
+        //Console.WriteLine($"SetParametersAsyncc id={id} \t name={name}");
+
+    }
+    
+    //onParmeterSet step4
+    //Discrtor
+
+    protected override void OnParametersSet()
+    {
+        Console.WriteLine($"OnParametersSet id={id} \t name={name}");
+
+        base.OnParametersSet();
+    }
+}

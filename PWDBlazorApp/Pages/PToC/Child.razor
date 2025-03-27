@@ -1,0 +1,13 @@
+﻿
+<div style="border:5px solid red">
+    <h3>Child</h3>
+    <h3>@no</h3>
+    <h3>@Msg</h3>
+</div>
+@code {
+    [Parameter]//url {} ,parent attribute ,defualt
+    public int no { get; set; } = 0;
+
+    [Parameter]//url {} ,parent attribute ,defualt
+    public string Msg { get; set; }="From Child Msg";
+}
